@@ -18,3 +18,10 @@ display the keys on that user’s account in the detail screen. The keys should 
  - [ ] Application uses MVVM architecture
  - [ ] Add infinite scrolling to the list of transactions.
  
+ ## Resources
+- EOS: https://github.com/EOSIO/eos
+- Public Node Endpoint: https://eos.greymass.com (utilize RPC endpoints to get necessary data)
+- RPC Endpoint Documentation (block contents may vary):
+https://developers.eos.io/eosio-nodeos/reference
+- EOSIO SDK for Java Documentation: https://github.com/EOSIO/eosio-java
+ 
