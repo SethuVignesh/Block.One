@@ -10,7 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".blocklist.view.blockListActivity"
+            android:label="@string/title_block_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".blockdetails.view.blockDetailActivity"
+            android:label="@string/title_block_detail"
+            android:parentActivityName=".blocklist.view.blockListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.blockone.blocklist.view.blockListActivity" />
+        </activity>
+        <activity
+            android:name=".SpalshScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
