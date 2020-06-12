@@ -26,4 +26,9 @@ https://developers.eos.io/eosio-nodeos/reference
 - EOSIO SDK for Java Documentation: https://github.com/EOSIO/eosio-java
 
 ## Screenshots
- 
+![Splash screen](app/screenshots/Screenshot_20200613-031336.jpg)
+![Start button clicked](app/screenshots/Screenshot_20200613-031349.jpg)
+![Infinite loading](app/screenshots/Screenshot_20200613-031354.jpg)
+![Detail screen](app/screenshots/Screenshot_20200613-031407.jpg)
+![show json](app/screenshots/Screenshot_20200613-031417.jpg)
+![hide json](app/screenshots/Screenshot_20200613-031422.jpg)
