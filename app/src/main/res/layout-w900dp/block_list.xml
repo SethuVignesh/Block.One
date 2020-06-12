@@ -10,7 +10,7 @@
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="horizontal"
     android:showDividers="middle"
-    tools:context=".blocklist.view.blockListActivity">
+    tools:context=".view.blockListActivity">
 
     <!--
     This layout is a two-pane layout for the block
@@ -27,7 +27,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
-        tools:context="com.example.blockone.blocklist.view.blockListActivity"
+        tools:context="com.example.blockone.view.blockListActivity"
         tools:listitem="@layout/block_list_content" />
 
     <FrameLayout

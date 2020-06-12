@@ -1,4 +1,4 @@
-package com.example.blockone.blocklist.model.pojo
+package com.example.blockone.model.pojo
 
 import com.google.gson.annotations.SerializedName
 

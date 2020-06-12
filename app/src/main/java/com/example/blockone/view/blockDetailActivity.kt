@@ -1,13 +1,13 @@
-package com.example.blockone.blockdetails.view
+package com.example.blockone.view
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
-import android.view.MenuItem
 import com.example.blockone.R
-import com.example.blockone.blocklist.view.blockListActivity
+import com.example.blockone.model.pojo.Block
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_block_detail.*
 
 /**
@@ -45,9 +45,9 @@ class blockDetailActivity : AppCompatActivity() {
             // using a fragment transaction.
             val fragment = blockDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(
+                    putParcelable(
                         blockDetailFragment.ARG_ITEM_ID,
-                        intent.getStringExtra(blockDetailFragment.ARG_ITEM_ID)
+                        intent.getParcelableExtra<Block>(blockDetailFragment.ARG_ITEM_ID)
                     )
                 }
             }

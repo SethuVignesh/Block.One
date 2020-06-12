@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".blocklist.view.blockListActivity"
+    tools:context=".view.blockListActivity"
     tools:listitem="@layout/block_list_content" />

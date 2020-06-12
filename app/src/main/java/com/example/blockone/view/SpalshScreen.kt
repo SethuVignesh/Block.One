@@ -1,15 +1,11 @@
-package com.example.blockone
+package com.example.blockone.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.airbnb.lottie.LottieAnimationView
-import com.example.blockone.blockdetails.view.blockDetailActivity
-import com.example.blockone.blocklist.model.pojo.Block
-import com.example.blockone.blocklist.viewmodel.BlockListViewModel
+import com.example.blockone.R
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -50,7 +46,7 @@ class SpalshScreen : AppCompatActivity() {
         network.addAnimatorUpdateListener { valueAnimator ->
             val progress = (valueAnimator.animatedValue as Float * 100).toInt()
             if (progress > 90) {
-                startActivity(Intent(this, blockDetailActivity::class.java))
+                startActivity(Intent(this, blockListActivity::class.java))
             }
         }
 

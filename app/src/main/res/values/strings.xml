@@ -3,6 +3,6 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_block_list">block</string>
-    <string name="title_block_detail">block Detail</string>
+    <string name="title_block_list">Latest Block</string>
+    <string name="title_block_detail">Block Detail</string>
 </resources>
