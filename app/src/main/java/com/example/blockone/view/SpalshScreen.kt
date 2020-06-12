@@ -3,9 +3,12 @@ package com.example.blockone.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.airbnb.lottie.LottieAnimationView
 import com.example.blockone.R
+import com.example.blockone.viewmodel.BlockListViewModel
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -17,6 +20,7 @@ class SpalshScreen : AppCompatActivity() {
     private var mVisible: Boolean = false
     private lateinit var ivMarker: LottieAnimationView
     private lateinit var network: LottieAnimationView
+    val blockListViewModel: BlockListViewModel by viewModels()
 
     init {
 
@@ -32,6 +36,7 @@ class SpalshScreen : AppCompatActivity() {
         network = findViewById(R.id.network)
         ivMarker.setOnClickListener(View.OnClickListener {
             ivMarker.playAnimation()
+            blockListViewModel.getHeadBlock()
 
 
         })
@@ -46,9 +51,19 @@ class SpalshScreen : AppCompatActivity() {
         network.addAnimatorUpdateListener { valueAnimator ->
             val progress = (valueAnimator.animatedValue as Float * 100).toInt()
             if (progress > 90) {
-                startActivity(Intent(this, blockListActivity::class.java))
+
             }
         }
+
+        blockListViewModel.headBlock.observe(this, Observer {
+            blockListViewModel.getBlockList(it.headBlockId)
+        })
+
+        blockListViewModel.blockList.observe(this, Observer {
+            var intent = Intent(this, blockListActivity::class.java)
+            intent.putParcelableArrayListExtra(blockListActivity.BLOCKS, it)
+            startActivity(intent)
+        })
 
     }
 

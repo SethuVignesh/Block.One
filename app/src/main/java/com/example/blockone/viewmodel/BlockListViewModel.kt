@@ -1,10 +1,12 @@
 package com.example.blockone.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.blockone.model.BlockListRepository
 import com.example.blockone.model.pojo.Block
 import com.example.blockone.model.pojo.BlockRequest
+import com.example.blockone.model.pojo.EOSHeadBlockResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -15,12 +17,15 @@ class BlockListViewModel() : ViewModel() {
     var blockListRepository: BlockListRepository =
         BlockListRepository()
     var showError: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    var selectedBlock: MutableLiveData<Block> = MutableLiveData<Block>()
+    var headBlock: MutableLiveData<EOSHeadBlockResponse> = MutableLiveData<EOSHeadBlockResponse>()
     fun getHeadBlock() {
         blockListRepository.getCurrentData().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if (it.isSuccessful) {
-                    getBlockList(it.body()?.headBlockId)
+
+                    headBlock.value = it.body()
                 } else {
                 }
             }, {
@@ -29,19 +34,20 @@ class BlockListViewModel() : ViewModel() {
 
     }
 
-    fun getBlockList(blockNumber: String?) {
-        getBlockList(blockNumber, 0)
+    fun getBlockList( blockNumber: String?) {
+        getBlockList( blockNumber, 0)
         arrayList = ArrayList<Block>()
     }
 
     var arrayList: ArrayList<Block> = ArrayList()
 
-    fun getBlockList(blockNumber: String?, count: Int) {
+    fun getBlockList( blockNumber: String?, count: Int) {
         if (count >= 20) {
             blockList.value = arrayList
             return
         }
         blockListRepository.getBlockDetails(
+
             BlockRequest(
                 blockNumber
             )
@@ -52,13 +58,14 @@ class BlockListViewModel() : ViewModel() {
                 if (it.isSuccessful) {
                     it.body()?.let {
                         arrayList.add(it)
-                        getBlockList(it.previous, count + 1)
+                        getBlockList( it.previous, count + 1)
                     }
                 } else {
                     showError.value = true
                 }
             }, {
                 showError.value = true
+
 
             })
 

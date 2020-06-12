@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blockone.R
 import com.example.blockone.model.pojo.Block
+import com.example.blockone.viewmodel.BlockListViewModel
 import java.util.*
 
 class RecyclerViewAdapter(
-    var list: ArrayList<Block>?
+    var list: ArrayList<Block>?, var viewModel: BlockListViewModel
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder?>() {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -24,6 +25,7 @@ class RecyclerViewAdapter(
             ProgressHolder(inflater.inflate(R.layout.row_loading_item, parent, false))
         }
     }
+
 
     override fun onBindViewHolder(
         holder: RecyclerView.ViewHolder,
@@ -56,11 +58,8 @@ class RecyclerViewAdapter(
             textTitle = itemView.findViewById<View>(R.id.id_text) as TextView
             textSubtitle = itemView.findViewById<View>(R.id.content) as TextView
             itemView.setOnClickListener {
-                Toast.makeText(
-                    itemView.context,
-                    "Clicked Item: " + list!![adapterPosition],
-                    Toast.LENGTH_SHORT
-                ).show()
+                viewModel.selectedBlock.value = list?.get(adapterPosition)
+
             }
         }
     }
@@ -72,5 +71,6 @@ class RecyclerViewAdapter(
         const val TYPE_DATA = 0
         const val TYPE_PROGRESS = 1
     }
+
 
 }

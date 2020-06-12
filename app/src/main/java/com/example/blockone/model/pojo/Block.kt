@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Block(
     @SerializedName("header_extensions") val headerExtensions: List<Int?>? = null,
-    @SerializedName("ref_block_prefix") val refBlockPrefix: Int? = null,
+//    @SerializedName("ref_block_prefix") val refBlockPrefix: Int? = null,
     @SerializedName("new_producers") val newProducers: NewProducers? = null,
     @SerializedName("previous") val previous: String? = null,
     @SerializedName("block_extensions") val blockExtensions: List<Int?>? = null,
@@ -25,7 +25,7 @@ data class Block(
     @Parcelize
     data class TransactionsItem(
         @SerializedName("net_usage_words") val netUsageWords: Int? = null,
-        @SerializedName("trx") val trx: String? = null,
+//        @SerializedName("trx") val trx: String? = null,
         @SerializedName("cpu_usage_us") val cpuUsageUs: Int? = null,
         @SerializedName("status") val status: String? = null
     ) : Parcelable
