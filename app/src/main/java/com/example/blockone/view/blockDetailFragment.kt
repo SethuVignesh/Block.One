@@ -32,6 +32,17 @@ class blockDetailFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.block_detail, container, false)
         item?.let {
             rootView.block_detail.text = it.blockNum.toString()
+            rootView.trx_count.text = it?.transactions?.size.toString()
+            rootView.signature.text = it.producerSignature
+            rootView.json.text = it.rawResponse
+            rootView.switcher.setOnCheckedChangeListener { buttonView, isChecked ->
+                if (isChecked) {
+                    rootView.json.visibility = View.VISIBLE
+                } else {
+                    rootView.json.visibility = View.GONE
+
+                }
+            }
         }
 
         return rootView

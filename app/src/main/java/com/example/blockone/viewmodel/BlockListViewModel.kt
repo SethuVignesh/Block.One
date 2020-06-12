@@ -1,6 +1,5 @@
 package com.example.blockone.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.blockone.model.BlockListRepository
@@ -56,14 +55,18 @@ class BlockListViewModel() : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if (it.isSuccessful) {
+                    it.body()?.rawResponse=it.body().toString()
                     it.body()?.let {
+
                         arrayList.add(it)
                         getBlockList( it.previous, count + 1)
                     }
                 } else {
+                    blockList.value = arrayList
                     showError.value = true
                 }
             }, {
+                blockList.value = arrayList
                 showError.value = true
 
 

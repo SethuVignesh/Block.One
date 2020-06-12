@@ -3,6 +3,7 @@ package com.example.blockone.model.pojo
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import retrofit2.Response
 
 @Parcelize
 data class Block(
@@ -20,6 +21,7 @@ data class Block(
     @SerializedName("transaction_mroot") val transactionMroot: String? = null,
     @SerializedName("id") val id: String? = null,
     @SerializedName("action_mroot") val actionMroot: String? = null,
+    @SerializedName("raw") var rawResponse: String? = null,
     @SerializedName("timestamp") val timestamp: String? = null
 ) : Parcelable {
     @Parcelize
