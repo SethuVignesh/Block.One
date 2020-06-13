@@ -1,6 +1,6 @@
 # Block.One
 As an EOS user, I want to see the contents of the most recent blocks on the EOS Public Blockchain.
-
+![hide json](app/screenshots/ezgif-3-73dc7ce18ec1.gif)
 ## Assignment checklist
  - [x] App has a button which, when clicked, will display a list of the 20 most recent blocks.
  - [x] When the user clicks on a block they should be taken to a block Details screen.
@@ -32,3 +32,5 @@ https://developers.eos.io/eosio-nodeos/reference
 ![Detail screen](app/screenshots/Screenshot_20200613-031407.jpg)
 ![show json](app/screenshots/Screenshot_20200613-031417.jpg)
 ![hide json](app/screenshots/Screenshot_20200613-031422.jpg)
+
+
