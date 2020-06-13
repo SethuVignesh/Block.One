@@ -75,7 +75,6 @@ class blockListActivity : AppCompatActivity() {
         })
 
         addscrolllistener()
-        blockListViewModel.getHeadBlock()
     }
 
     lateinit var adapter: RecyclerViewAdapter
