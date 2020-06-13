@@ -13,7 +13,7 @@ transactions and the producer signature.
  - [ ] Application should have unit tests.
  
  ## Bonus Tasks
- - [ ] Query the specific keys of the user in each transaction by implementing the getAccount() method and
+ - [x] Query the specific keys of the user in each transaction by implementing the getAccount() method and
 display the keys on that user’s account in the detail screen. The keys should be in PEM format.
  - [x] Application uses MVVM architecture
  - [x] Add infinite scrolling to the list of transactions.
