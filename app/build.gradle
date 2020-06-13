@@ -10,7 +10,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.blockone"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -60,5 +60,14 @@ dependencies {
     implementation 'one.block:eosiojavasoftkeysignatureprovider:0.1.1'
     implementation 'one.block:eosiojavaandroidabieosserializationprovider:0.1.0'
     implementation 'one.block:eosiojavarpcprovider:0.1.1'
+
+    // ... more entries
+    testImplementation 'junit:junit:4.12'
+
+    // required if you want to use Mockito for unit tests
+    testImplementation 'org.mockito:mockito-core:2.7.22'
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    // required if you want to use Mockito for Android tests
+    androidTestImplementation 'org.mockito:mockito-android:2.7.22'
 
 }

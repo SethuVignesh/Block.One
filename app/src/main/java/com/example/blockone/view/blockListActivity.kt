@@ -2,7 +2,6 @@ package com.example.blockone.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +20,8 @@ class blockListActivity : AppCompatActivity() {
 
     private var twoPane: Boolean = false
     private var arrayList = ArrayList<Block>()
-    val blockListViewModel: BlockListViewModel  =vita.with(VitaOwner.None).getViewModel<BlockListViewModel>()
+    val blockListViewModel: BlockListViewModel =
+        vita.with(VitaOwner.None).getViewModel<BlockListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

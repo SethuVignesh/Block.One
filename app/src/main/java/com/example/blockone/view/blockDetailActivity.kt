@@ -11,26 +11,26 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_block_detail.*
 
 class blockDetailActivity : AppCompatActivity() {
-
+    lateinit var block: Block
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_block_detail)
         setSupportActionBar(detail_toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, block.rawResponse.toString(), Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null) {
-
+            block = intent.getParcelableExtra<Block>(blockDetailFragment.ARG_ITEM_ID)
             val fragment = blockDetailFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(
                         blockDetailFragment.ARG_ITEM_ID,
-                        intent.getParcelableExtra<Block>(blockDetailFragment.ARG_ITEM_ID)
+                        block
                     )
                 }
             }

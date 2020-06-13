@@ -14,8 +14,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
             android:gravity="center_vertical"
-            android:text="Block Number"
+            android:text="BLOCK NUMBER"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -24,7 +25,6 @@
             style="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
             android:textIsSelectable="true"
             tools:context=".view.blockDetailFragment"
             tools:text="block number" />
@@ -33,13 +33,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Transaction Count"
+            android:layout_marginEnd="16dp"
+            android:gravity="top"
+            android:text="TRANSACTION COUNT"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -48,7 +50,7 @@
             style="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:gravity="top"
             android:textIsSelectable="true"
             tools:context=".view.blockDetailFragment"
             tools:text="block number" />
@@ -62,8 +64,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
             android:gravity="top"
-            android:text="Signature"
+            android:text="SIGNATURE"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -78,28 +81,60 @@
             tools:text="block number" />
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/switcher"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
-        android:checked="true"
-        android:fontFamily="sans-serif-condensed"
-        android:showText="true"
-        android:textColor="@color/blue"
-        android:textOff="SHOW"
-        android:textOn="HODE" />
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+
+            android:text=" SHOW/HIDE JSON"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:checked="false"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:showText="false"
+            android:textColor="@color/blue"
+            android:textOff="SHOW"
+            android:textOn="HIDE" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/json"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="top"
+        android:text="KEYS"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/key_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

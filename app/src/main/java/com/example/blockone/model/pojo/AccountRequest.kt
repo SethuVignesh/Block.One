@@ -1,5 +1,5 @@
 package com.example.blockone.model.pojo
 
 data class AccountRequest(
-	val accountName: String? = null
+	val account_name: String? = null
 )
