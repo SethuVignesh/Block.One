@@ -3,10 +3,11 @@ package com.example.blockone.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.airbnb.lottie.LottieAnimationView
+import com.androidisland.vita.VitaOwner
+import com.androidisland.vita.vita
 import com.example.blockone.R
 import com.example.blockone.viewmodel.BlockListViewModel
 
@@ -20,7 +21,7 @@ class SpalshScreen : AppCompatActivity() {
     private var mVisible: Boolean = false
     private lateinit var ivMarker: LottieAnimationView
     private lateinit var network: LottieAnimationView
-    val blockListViewModel: BlockListViewModel by viewModels()
+    lateinit var blockListViewModel: BlockListViewModel
 
     init {
 
@@ -30,7 +31,7 @@ class SpalshScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_fullscreen)
-
+        blockListViewModel = vita.with(VitaOwner.None).getViewModel<BlockListViewModel>()
 
         ivMarker = findViewById(R.id.start_btn)
         network = findViewById(R.id.network)
@@ -61,7 +62,7 @@ class SpalshScreen : AppCompatActivity() {
 
         blockListViewModel.blockList.observe(this, Observer {
             var intent = Intent(this, blockListActivity::class.java)
-            intent.putParcelableArrayListExtra(blockListActivity.BLOCKS, it)
+//            intent.putParcelableArrayListExtra(blockListActivity.BLOCKS, it)
             startActivity(intent)
         })
 

@@ -39,7 +39,7 @@ class blockDetailFragment : Fragment() {
                 if (isChecked) {
                     rootView.json.visibility = View.VISIBLE
                 } else {
-                    rootView.json.visibility = View.GONE
+                    rootView.json.visibility = View.INVISIBLE
 
                 }
             }

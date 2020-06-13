@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidisland.vita.VitaOwner
+import com.androidisland.vita.vita
 import com.example.blockone.R
 import com.example.blockone.model.pojo.Block
 import com.example.blockone.viewmodel.BlockListViewModel
@@ -19,7 +21,7 @@ class blockListActivity : AppCompatActivity() {
 
     private var twoPane: Boolean = false
     private var arrayList = ArrayList<Block>()
-    val blockListViewModel: BlockListViewModel by viewModels()
+    val blockListViewModel: BlockListViewModel  =vita.with(VitaOwner.None).getViewModel<BlockListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,7 @@ class blockListActivity : AppCompatActivity() {
                 arrayList = it.getParcelableArrayListExtra<Block>(BLOCKS)
             }
         }
+        arrayList = blockListViewModel.arrayList
         setSupportActionBar(toolbar)
         toolbar.title = title
 
@@ -49,7 +52,10 @@ class blockListActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         block_list.layoutManager = layoutManager
 
-
+        if (arrayList.isEmpty()) blockListViewModel.getHeadBlock()
+        blockListViewModel.headBlock.observe(this, Observer {
+            blockListViewModel.getBlockList(it.headBlockId)
+        })
 
         blockListViewModel.blockList.observe(this, Observer {
             arrayList.addAll(it)

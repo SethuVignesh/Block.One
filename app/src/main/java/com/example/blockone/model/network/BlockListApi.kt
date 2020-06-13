@@ -22,5 +22,12 @@ interface BlockListApi {
     @POST("/v1/chain/get_block")
     fun getBlock(@Body blockRequest: BlockRequest): Single<Response<Block>>
 
+    @Headers(
+        "Content-Type: application/json;charset=utf-8",
+        "Accept: application/json"
+    )
+    @POST("/v1/chain/get_block")
+    fun getBlockString(@Body blockRequest: BlockRequest): Single<Response<String>>
+
 
 }
