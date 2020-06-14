@@ -56,14 +56,14 @@ class BillsViewModelTest : BaseTest() {
     fun testGetHeadBlockException() {
         val exception = Exception("error")
         val single = Single.error<Block>(exception)
-        Mockito.doReturn(single)
+        Mockito.doNothing()
             .`when`(blockListViewModel)
             .getHeadBlockVM()
         single.test().assertNotComplete()
         single.test().assertFailure(Exception::class.java)
 
         blockListViewModel.getHeadBlockVM()
-        Mockito.verify(blockListViewModel, times(0)).getHeadBlockVM()
+        Mockito.verify(blockListRepository, times(0)).getHeadBlockRepo()
     }
 
 }
