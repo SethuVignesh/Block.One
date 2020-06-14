@@ -30,7 +30,7 @@ class BillsViewModelTest : BaseTest() {
         Assert.assertNull(blockListViewModel.showError.value)
         Assert.assertNull(blockListViewModel.blockList.value)
         Assert.assertNull(blockListViewModel.selectedBlock.value)
-//        Assert.assertNull(blockListViewModel.headBlock.value)
+        Assert.assertNull(blockListViewModel.headBlock.value)
     }
 
 
