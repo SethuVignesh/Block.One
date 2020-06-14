@@ -11,13 +11,13 @@ transactions and the producer signature.
  - [x] Application code is viewable publicly on GitHub.
  - [x] Screenshots of working application should be in the README.
  - [x] Application should be written in Kotlin.
- - [ ] Application should have unit tests.
+ - [x] Application should have unit tests.(Implemented for block list view model sucees and failure cases)
  
  ## Bonus Tasks
  - [x] Query the specific keys of the user in each transaction by implementing the getAccount() method and
 display the keys on that user’s account in the detail screen. The keys should be in PEM format.
  - [x] Application uses MVVM architecture
- - [x] Add infinite scrolling to the list of transactions.
+ - [x] Add infinite scrolling to the list of transactions.(implemented for block list activity)
  
  ## Resources
 - EOS: https://github.com/EOSIO/eos
