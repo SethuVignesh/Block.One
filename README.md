@@ -2,6 +2,10 @@
 As an EOS user, I want to see the contents of the most recent blocks on the EOS Public Blockchain.
 ## Screenshots
 ![EOS app](app/screenshots/ezgif-3-82a1d98d96de.gif)
+ ||||||
+|--|--|--|--|--|
+| ![splash screen](app/screenshots/Screenshot_20200615-004616.jpg) | ![splash screen](app/screenshots/Screenshot_20200615-004629.jpg) |![splash screen](app/screenshots/Screenshot_20200615-004636.jpg) |![splash screen](app/screenshots/Screenshot_20200615-004642.jpg) |![splash screen](app/screenshots/Screenshot_20200615-004649.jpg) |
+
 ## Assignment checklist
  - [x] App has a button which, when clicked, will display a list of the 20 most recent blocks.
  - [x] When the user clicks on a block they should be taken to a block Details screen.
