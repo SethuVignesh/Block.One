@@ -37,7 +37,7 @@ class SpalshScreen : AppCompatActivity() {
         network = findViewById(R.id.network)
         ivMarker.setOnClickListener(View.OnClickListener {
             ivMarker.playAnimation()
-            blockListViewModel.getHeadBlock()
+            blockListViewModel.getHeadBlockVM()
 
 
         })

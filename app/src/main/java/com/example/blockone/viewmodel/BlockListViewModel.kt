@@ -20,8 +20,9 @@ class BlockListViewModel() : ViewModel() {
     var keys: MutableLiveData<ArrayList<AccountDetailsResponse.KeysItem>> =
         MutableLiveData<ArrayList<AccountDetailsResponse.KeysItem>>()
 
-    fun getHeadBlock() {
-        blockListRepository.getHeadBlockRepo().subscribeOn(Schedulers.io())
+    fun getHeadBlockVM() {
+        blockListRepository.getHeadBlockRepo()
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 if (it != null) {

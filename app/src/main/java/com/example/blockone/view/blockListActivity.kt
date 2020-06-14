@@ -52,7 +52,7 @@ class blockListActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         block_list.layoutManager = layoutManager
 
-        if (arrayList.isEmpty()) blockListViewModel.getHeadBlock()
+        if (arrayList.isEmpty()) blockListViewModel.getHeadBlockVM()
         blockListViewModel.headBlock.observe(this, Observer {
             blockListViewModel.getBlockList(it.headBlockId)
         })

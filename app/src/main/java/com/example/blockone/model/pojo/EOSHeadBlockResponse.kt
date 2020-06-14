@@ -21,7 +21,24 @@ data class EOSHeadBlockResponse(
     @SerializedName("server_version_string") val serverVersionString: String? = null
 ) {
     companion object {
-        fun mock() = EOSHeadBlockResponse(headBlockNum = 1)
+        fun mock() = EOSHeadBlockResponse(
+            headBlockNum = 1,
+            chainId = "123",
+            forkDbHeadBlockNum = 123,
+            headBlockTime = "123",
+            virtualBlockNetLimit = 123,
+            virtualBlockCpuLimit = 123,
+            lastIrreversibleBlockNum = 123,
+            serverVersion = "123",
+            blockCpuLimit = 123,
+            headBlockProducer = "123",
+            forkDbHeadBlockId = "123",
+            lastIrreversibleBlockId = "123",
+            blockNetLimit = 123,
+            headBlockId = "123",
+            serverFullVersionString = "123",
+            serverVersionString = "123"
+        )
 
     }
 }

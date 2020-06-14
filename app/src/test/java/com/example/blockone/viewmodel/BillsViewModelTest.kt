@@ -6,7 +6,6 @@ import com.example.blockone.model.pojo.Block
 import com.example.blockone.model.pojo.EOSHeadBlockResponse
 import io.reactivex.rxjava3.core.Single
 import org.junit.Assert
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -18,7 +17,7 @@ import org.mockito.Mockito.times
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest : BaseTest() {
+class BillsViewModelTest : BaseTest() {
 
     @Mock
     lateinit var blockListRepository: BlockListRepository
@@ -31,29 +30,26 @@ class ExampleUnitTest : BaseTest() {
         Assert.assertNull(blockListViewModel.showError.value)
         Assert.assertNull(blockListViewModel.blockList.value)
         Assert.assertNull(blockListViewModel.selectedBlock.value)
-//        Assert.assertNull(blockListViewModel.headBlock)
+//        Assert.assertNull(blockListViewModel.headBlock.value)
     }
 
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
 
     @Test
     fun testGetHeadBlock() {
         val eosHeadBlockResponse = EOSHeadBlockResponse.mock()
-
         val single = Single.just(eosHeadBlockResponse)
+
+        blockListViewModel.blockListRepository = blockListRepository
 
         Mockito.doReturn(single)
             .`when`(blockListRepository)
             .getHeadBlockRepo()
+        blockListViewModel.getHeadBlockVM()
 
-        blockListViewModel.getHeadBlock()
-
-        Mockito.verify(blockListRepository).getHeadBlockRepo()
-        Assert.assertEquals(blockListViewModel.showError.value, false)
+        Assert.assertNull(blockListViewModel.showError.value)
         Assert.assertNull(blockListViewModel.selectedBlock.value)
+        Mockito.verify(blockListRepository).getHeadBlockRepo()
+
     }
 
     @Test
@@ -62,12 +58,12 @@ class ExampleUnitTest : BaseTest() {
         val single = Single.error<Block>(exception)
         Mockito.doReturn(single)
             .`when`(blockListViewModel)
-            .getHeadBlock()
+            .getHeadBlockVM()
         single.test().assertNotComplete()
         single.test().assertFailure(Exception::class.java)
 
-        blockListViewModel.getHeadBlock()
-        Mockito.verify(blockListViewModel, times(0)).getHeadBlock()
+        blockListViewModel.getHeadBlockVM()
+        Mockito.verify(blockListViewModel, times(0)).getHeadBlockVM()
     }
 
 }
